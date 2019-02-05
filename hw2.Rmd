@@ -5,61 +5,77 @@ date: "February 5, 2019"
 output: html_document
 ---
 
+##R Commands
+
+Question 1:
 ```{r}
 cel <- c(-9.4, -23.3)
 cel
 ```
-
+Question 2:
 ```{r}
 vec200 <- rep(c(1,0), length.out = 200)
 vec200
 ```
-
+Question 3:
 ```{r}
 i <- 1
-numPerfect <- 0
 result <- 1
 
 while (result <= 1001) {
-  numPerfect <- numPerfect + 1
   i <- i + 1
   result <- i * i
 }
 
+numPerfect <- i
 numPerfect
   
 ```
-```{r}
-install.packages("ggplot2")
-library(ggplot2)
 
-View(mpg)
+##Cars and Mileage
+
+```{r}
+#install.packages("ggplot2")
+library(ggplot2)
 ```
 
+Quesiton 1:  
+The top three model cars with the greatest miles per gallon on the highway are jetta, new beetle manual, and new beetle auto.
 ```{r}
 s1 <- mpg[order(mpg$hwy, decreasing=TRUE), ]
 top3 <- s1[1:3, ]
 top3
 ```
 
+Question 2:  
+There are eight unique compact models within this dataset.
 ```{r}
 s2 <- mpg[mpg$class == 'compact', ]
 numCompact <- length(unique(s2$model))
 numCompact
 ```
 
+Question 3:  
+There are not as many points visiable as entries in the data set, because some of the data points overlap each other. 
 ```{r}
+#t1 <- mpg[mpg$hwy == 29, ]
+#View(t1)
+
 plot(mpg$hwy, mpg$cty)
 ```
 
+Quesiton 4:  
+Based upon the average value for city and highway miles per gallon, the average car from 2008 is not more fuel efficeint than the average car from 1999 based on this data set.
 ```{r}
 year08 <- mpg[mpg$year == 2008, ]
 year99 <- mpg[mpg$year == 1999, ]
 
+View(year08)
+
 mean(year08$cty)
 mean(year08$hwy)
 mean(year99$cty)
-mean(year99$cty)
+mean(year99$hwy)
 ```
 
 
