@@ -29,6 +29,41 @@ while (result <= 1001) {
 numPerfect
   
 ```
+```{r}
+install.packages("ggplot2")
+library(ggplot2)
+
+View(mpg)
+```
+
+```{r}
+s1 <- mpg[order(mpg$hwy, decreasing=TRUE), ]
+top3 <- s1[1:3, ]
+top3
+```
+
+```{r}
+s2 <- mpg[mpg$class == 'compact', ]
+numCompact <- length(unique(s2$model))
+numCompact
+```
+
+```{r}
+plot(mpg$hwy, mpg$cty)
+```
+
+```{r}
+year08 <- mpg[mpg$year == 2008, ]
+year99 <- mpg[mpg$year == 1999, ]
+
+mean(year08$cty)
+mean(year08$hwy)
+mean(year99$cty)
+mean(year99$cty)
+```
+
+
+
 
 
 
